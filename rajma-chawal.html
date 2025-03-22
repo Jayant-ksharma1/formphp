@@ -1,63 +1,322 @@
-<html>
-    <head>
-        <title>
-            RAJMA CHAWAL RECIPE
-        </title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f9;
-                margin: 0;
-                padding: 0;
-            }
-            h2 {
-                text-align: center;
-                color: #4CAF50;
-                background-color: #FFEB3B;
-                padding: 10px;
-                border-radius: 10px;
-            }
-            p {
-                font-size: 18px;
-                color: #333;
-                line-height: 1.6;
-                margin: 20px;
-            }
-            img {
-                display: block;
-                margin: 0 auto;
-                border-radius: 8px;
-            }
-            .container {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-            .recipe-info {
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h2>RAJMA CHAWAL</h2>
-            <img src="https://th.bing.com/th?q=Rajma+Chawal+HD+Images&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" width="300px" height="300px">
-            <div class="recipe-info">
-                <p>Rajma Chawal is a beloved North Indian dish that brings together kidney beans (rajma) cooked in a spicy, flavorful gravy served alongside fluffy basmati rice (chawal). This dish is often enjoyed as a hearty lunch or dinner, and it's comfort food at its best.</p>
-                <p>The combination of tender kidney beans in a rich tomato-based gravy is complemented perfectly by the mild, aromatic rice. This dish is also a source of plant-based protein and is often served with a side of yogurt or pickle to balance the flavors.</p>
-                <p>Rajma Chawal is especially popular in homes across Northern India, where it’s a staple for family meals. It is often prepared in large quantities and shared among friends and loved ones, making it a symbol of togetherness and comfort.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Application System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    padding: 20px;
+}
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, #041e42, #000000);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3a80ff;
+            padding-bottom: 10px;
+            color: #3a80ff;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #e0e0e0;
+        }
+        
+        select, input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid #2c4c7c;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #3a80ff;
+            box-shadow: 0 0 0 2px rgba(58, 128, 255, 0.3);
+        }
+        
+        button {
+            background: linear-gradient(to right, #3a80ff, #2c4c7c);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: linear-gradient(to right, #2c4c7c, #3a80ff);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(58, 128, 255, 0.4);
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .error {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
+        }
+        
+        .success {
+            background-color: rgba(0, 255, 0, 0.1);
+            color: #4cff4c;
+            border: 1px solid #4cff4c;
+        }
+        
+        .info {
+            background-color: rgba(58, 128, 255, 0.1);
+            color: #3a80ff;
+            border: 1px solid #3a80ff;
+        }
+        
+        .application-summary {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .application-summary h3 {
+            margin-bottom: 15px;
+            color: #3a80ff;
+        }
+        
+        .summary-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        
+        .summary-label {
+            width: 40%;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+        
+        .summary-value {
+            width: 60%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Part 1: Client-side Visa Check -->
+        <div class="card">
+            <h2>Instant Visa Check</h2>
+            <div class="form-group">
+                <label for="country-check">Select your country:</label>
+                <select id="country-check">
+                    <option value="">-- Select a country --</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="India">India</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                </select>
             </div>
+            <button id="check-visa-btn">Check Visa</button>
+            <div id="visa-result" class="result"></div>
         </div>
-        <br><br>
-        <h2>HOW TO PREPARE IT</h2>
-        <p>1. Start by soaking the kidney beans (rajma) overnight or for 6-8 hours.
-        <br>2. Pressure cook the soaked rajma with water until soft.
-        <br>3. In a pan, heat oil and sauté onions, ginger, and garlic.
-        <br>4. Add chopped tomatoes and cook until soft, then add spices like cumin, coriander powder, garam masala, and red chili powder.
-        <br>5. Add the cooked rajma to the pan and cook for 10-15 minutes to let the flavors blend together.
-        <br>6. Serve the rajma with steamed rice (chawal) and enjoy your delicious Rajma Chawal.</p>
-    </body>
+        
+        <!-- Part 3: Complete Visa Application Form -->
+        <div class="card">
+            <h2>Visa Application Form</h2>
+            <form id="visa-application-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="passport-number">Passport Number:</label>
+                    <input type="text" id="passport-number" placeholder="Enter 8-10 character passport number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="country-select">Select your country:</label>
+                    <select id="country-select">
+                        <option value="">-- Select a country --</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="India">India</option>
+                        <option value="UK">UK</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </div>
+                
+                <button type="submit" id="apply-visa-btn">Apply for Visa</button>
+                <div id="application-result" class="result"></div>
+                
+                <div id="application-summary" class="application-summary">
+                    <h3>Application Summary</h3>
+                    <div class="summary-item">
+                        <div class="summary-label">Full Name:</div>
+                        <div id="summary-name" class="summary-value"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Passport Number:</div>
+                        <div id="summary-passport" class="summary-value"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Country:</div>
+                        <div id="summary-country" class="summary-value"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Visa Status:</div>
+                        <div id="summary-visa" class="summary-value"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Part 1: Client-side Visa Check
+        document.getElementById('check-visa-btn').addEventListener('click', function() {
+            const country = document.getElementById('country-check').value;
+            const resultDiv = document.getElementById('visa-result');
+            
+            resultDiv.style.display = 'block';
+            
+            if (!country) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = 'Please select a country.';
+                return;
+            }
+            
+            resultDiv.className = 'result info';
+            let message = '';
+            
+            switch (country) {
+                case 'USA':
+                    message = 'Visa required for most applicants.';
+                    break;
+                case 'Canada':
+                    message = 'Visa required unless you have an eTA.';
+                    break;
+                case 'India':
+                    message = 'Visa required before travel.';
+                    break;
+                case 'UK':
+                    message = 'Visa depends on the duration of stay.';
+                    break;
+                case 'Australia':
+                    message = 'eVisa available for eligible travelers.';
+                    break;
+                default:
+                    message = 'Visa requirements vary. Contact embassy for details.';
+            }
+            
+            resultDiv.textContent = message;
+        });
+        
+        // Part 3: Complete Visa Application Form
+        document.getElementById('visa-application-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('full-name').value.trim();
+            const passportNumber = document.getElementById('passport-number').value.trim();
+            const country = document.getElementById('country-select').value;
+            
+            const resultDiv = document.getElementById('application-result');
+            const summaryDiv = document.getElementById('application-summary');
+            
+            resultDiv.style.display = 'block';
+            
+            // Validation
+            if (!fullName || !passportNumber || !country) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = 'All fields are required!';
+                summaryDiv.style.display = 'none';
+                return;
+            }
+            
+            if (passportNumber.length < 8 || passportNumber.length > 10) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = 'Invalid passport number! Must be 8-10 characters.';
+                summaryDiv.style.display = 'none';
+                return;
+            }
+            
+            // Form submission success
+            resultDiv.className = 'result success';
+            resultDiv.textContent = 'Visa application submitted successfully!';
+            
+            // Display application summary
+            document.getElementById('summary-name').textContent = fullName;
+            document.getElementById('summary-passport').textContent = passportNumber;
+            document.getElementById('summary-country').textContent = country;
+            
+            // Get visa message based on country
+            let visaMessage = '';
+            switch (country) {
+                case 'USA':
+                    visaMessage = 'Visa required for most applicants.';
+                    break;
+                case 'Canada':
+                    visaMessage = 'Visa required unless you have an eTA.';
+                    break;
+                case 'India':
+                    visaMessage = 'Visa required before travel.';
+                    break;
+                case 'UK':
+                    visaMessage = 'Visa depends on the duration of stay.';
+                    break;
+                case 'Australia':
+                    visaMessage = 'eVisa available for eligible travelers.';
+                    break;
+                default:
+                    visaMessage = 'Visa requirements vary. Contact embassy for details.';
+            }
+            
+            document.getElementById('summary-visa').textContent = visaMessage;
+            summaryDiv.style.display = 'block';
+        });
+    </script>
+</body>
 </html>
